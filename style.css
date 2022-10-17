@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.main__titulo{
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.main__galeria{
+    padding: 0 0 2rem;
+    display: grid;
+    width: 99%;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    grid-template-areas: 
+    "img1 img1 img2 img3"
+    "img1 img1 img4 img4"
+    "img5 img6 img6 img7"
+    "img5 img6 img6 img8"
+    ;
+    gap: 0.5rem;
+}
+.galeria__img{
+    width: 100%;
+    height: 100%;
+    /*Mejora la resolución de la imagen*/
+    object-fit: cover;
+}
+.galeria__figura--img1{
+    grid-area: img1;
+}
+.galeria__figura--img2{
+    grid-area: img2;
+}
+.galeria__figura--img3{
+    grid-area: img3;
+}
+.galeria__figura--img4{
+    grid-area: img4;
+}
+.galeria__figura--img5{
+    grid-area: img5;
+}
+.galeria__figura--img6{
+    grid-area: img6;
+}
+.galeria__figura--img7{
+    grid-area: img7;
+}
+.galeria__figura--img8{
+    grid-area: img8;
+}
+
+.galeria__figura{
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.galeria__figura::after{
+    content: "¡Hola!";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(94, 21, 166, 0.466);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+.galeria__figura:hover::after{
+    transform: scale(1) rotate(360deg);
+}
+
+@media (max-width: 768px) {
+    .main__galeria{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "img1 img1"
+        "img1 img1"
+        "img2 img3"
+        "img2 img4"
+        "img5 img5"
+        "img6 img8"
+        "img7 img8"
+        ;
+        gap: 0.5rem;
+    }
+    .galeria__figura::after{
+        transform: scaleY(0);
+    }
+
+    .galeria__figura:hover::after{
+        transform: scaleY(1);
+    }
+}
